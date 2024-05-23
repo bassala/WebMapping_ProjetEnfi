@@ -1,0 +1,12 @@
+asgiref==3.8.1
+Django==5.0.3
+GDAL @ file:///C:/Users/BASSALA/OneDrive%20-%20Universite%20Abdelmalek%20Essaadi/Document/Leaflet/GDAL-3.4.3-cp311-cp311-win_amd64.whl#sha256=f78861fb5115d5c2f8cf3c52a492ff548da9e1256dc84088947379f90e77e5b6
+numpy==1.26.4
+pandas==2.2.2
+psycopg2==2.9.9
+python-dateutil==2.9.0.post0
+pytz==2024.1
+six==1.16.0
+sqlparse==0.4.4
+tzdata==2024.1
+whitenoise==6.6.0

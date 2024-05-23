@@ -1,0 +1,57 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}Titre de votre page{% endblock %}
+
+{% block content %}
+<style>
+    #map {
+        left: 0%;
+        bottom: 0%;
+        top: 0%;
+        width: 800px;
+        height: 600px;
+    }
+    #conteneur {
+        display: flex;
+    }
+    #texte {
+        position: relative;
+        width: 400px;
+        height: 490px;
+        left: 10px;
+        margin-top: 10px;
+        border: 2px solid black;
+        padding-left: 2px;
+    }
+    #titre {
+        position: relative;
+        width: 400px;
+        height: 100px;
+        left: 10px;
+        border: 2px solid black;
+        padding-left: 2px;
+    }
+    #conteneur_2 {
+        display: inline-block;
+    }
+</style>
+
+
+
+<div id="conteneur">
+    <div id="map"></div>
+    <div id="conteneur_2">   
+        <div id="titre">
+            <h3>Cliquer pour voir les informations</h3>
+            <p> En cliquant sur chaque canton un tableau s'affiche ci-dessous</p>
+        </div>  
+        <div id="texte"></div> 
+    </div>
+</div>
+{% endblock %}
+
+
+{% block scripts %}
+
+{% endblock %}
