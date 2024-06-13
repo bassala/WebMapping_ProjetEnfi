@@ -1,7 +1,47 @@
 from django.http import JsonResponse
 from django.shortcuts import render
+from .models import A,B,C,D,E
 
-# Create your views here.
 
 def webmapping(request):
     return render(request, 'index.html')
+
+
+def get_data(request):
+    region_name = request.GET.get('canton')
+    region_model = None
+      # Récupère le paramètre 'region_name' de la requête GET
+    
+    # Mapping des noms de région à leurs modèles correspondants
+    if region_name == 'A':
+        region_model = A
+    elif region_name == 'B':
+        region_model = B
+    elif region_name == 'C':
+        region_model = C
+    elif region_name == 'D':
+        region_model = D
+    elif region_name == 'E':
+        region_model = E
+
+
+
+    if region_model:
+   
+        # Sélectionner toutes les instances du modèle de région spécifique
+        regions = region_model.objects.all()
+        superficie = [region.superf for region in regions]
+        data = {'superficie': superficie}
+
+        # Préparation des données à renvoyer sous forme de JsonResponse
+        # data = {
+        #     'superficie': [region.Superficie for region in regions]
+        #     'postvigi': [region.postvigi for region in regions],
+        #     'ptdeau': [region.ptdeau for region in regions],
+        #     'trancherfeu': [region.trancherfeu for region in regions],
+        #     'typeEssence': [region.typeEssence for region in regions]
+       #   }
+
+        return JsonResponse(data)
+    else:
+        return JsonResponse({'error': 'Région non trouvée'}, status=404)

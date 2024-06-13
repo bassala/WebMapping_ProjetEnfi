@@ -3,6 +3,7 @@ from . import views
 
 
 urlpatterns = [
-    path('webmapping/', views.webmapping, name='webmapping'),
-    
+    path('get_data/', views.get_data, name='get_data'),
+    path('', views.webmapping, name='webmapping'),
+   
 ]

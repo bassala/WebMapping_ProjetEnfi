@@ -2,36 +2,34 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Foret de Maamora</title>
+       
+    <!-- Leaflet CSS et JS -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="anonymous">
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin="anonymous"></script>
     
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Ville de québec </title>
-   
-<!-- juste copier coller depuis site coter tutoriel -->
-    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
-     integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
-     crossorigin=""/>
-
-     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
-     integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
-     crossorigin=""></script>
-     
-        
-
- </head>
+    <!-- CSS personnalisé -->
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+</head>
+<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 <body>
-
-{% block content %}
-
-
-{% endblock %}
-
-
+    {% block content %}
+  
+    
+    {% endblock %}
+   
+    <!-- Scripts personnalisés -->
+    <script src="{% static 'canton.js' %}"></script>
+    <script src="{% static 'strate.js' %}"></script>
+    <script src="{% static 'jsonincendie.js' %}"></script>
+    <script src="{% static 'ptdeau.js' %}"></script>
+    <script src="{% static 'jsonpostvigie.js' %}"></script>
+ 
+    <script src="{% static 'javascript.js' %}"></script>
       
 
+    
 </body>
-<!-- Les scripts sont les derniers elements a exécuté toujour a la fin de body -->
-<script src="{% static 'canton.js' %}"></script>
-<script src="{% static 'javascript.js' %}"></script> 
-
 </html>
