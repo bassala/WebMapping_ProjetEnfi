@@ -30,17 +30,18 @@ def get_data(request):
    
         # Sélectionner toutes les instances du modèle de région spécifique
         regions = region_model.objects.all()
+        postvigi = [region.postvigi for region in regions]
+        ptdeau  =[region.ptdeau for region in regions]
+        trancherfeu = [region.trancherfeu for region in regions]
+        typeEssence =[region.typeEssence for region in regions]
         superficie = [region.superf for region in regions]
-        data = {'superficie': superficie}
 
-        # Préparation des données à renvoyer sous forme de JsonResponse
-        # data = {
-        #     'superficie': [region.Superficie for region in regions]
-        #     'postvigi': [region.postvigi for region in regions],
-        #     'ptdeau': [region.ptdeau for region in regions],
-        #     'trancherfeu': [region.trancherfeu for region in regions],
-        #     'typeEssence': [region.typeEssence for region in regions]
-       #   }
+        data = {'superficie': superficie,
+                'postvigi': postvigi,
+                'ptdeau': ptdeau,
+                'trancherfeu': trancherfeu,
+                'typeEssence':  typeEssence}
+
 
         return JsonResponse(data)
     else:

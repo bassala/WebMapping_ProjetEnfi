@@ -4,10 +4,10 @@ from django.db import models
 # Définition d'un modèle de base pour les cantons
 class CantonBase(models.Model):
     superf = models.IntegerField()
-    # postvigi = models.IntegerField()
-    # ptdeau = models.IntegerField()
-    # trancherfeu = models.IntegerField()
-    # typeEssence = models.CharField(max_length=200)
+    postvigi = models.IntegerField()
+    ptdeau = models.IntegerField()
+    trancherfeu = models.IntegerField()
+    typeEssence = models.CharField(max_length=200)
     
     class Meta:
         abstract = True  # Ce modèle est abstrait, il ne sera pas créé en tant que table dans la base de données

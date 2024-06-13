@@ -122,6 +122,11 @@ function zoomToFeature(e) {
         console.log(response.data);
         document.getElementById('regionCell').textContent = regionName;
         document.getElementById('habitatsCell').textContent = response.data.superficie;
+        document.getElementById('pt').textContent = response.data.ptdeau;
+        document.getElementById('ptvigi').textContent = response.data.postvigi;
+        document.getElementById('Tranché').textContent = response.data.trancherfeu;
+        document.getElementById('essence').textContent = response.data.typeEssence;
+
     })
     .catch(function (error) {
         console.log(error);
