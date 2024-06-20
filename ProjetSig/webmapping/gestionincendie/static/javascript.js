@@ -28,17 +28,39 @@ var maamora = L.geoJSON(jsoncanton, {
 var strateEssence = L.geoJSON(jsonstrate);
 
 // Ajout de la couche GeoJSON pour posteVigi
+var myIcon2 = L.icon({
+    iconUrl: "static/tour.png",
+    iconSize: [38, 95],
+});
+
 var PosteVigi = L.geoJSON(postvigie, {
-    onEachFeature: function (feature, layer) {
-        layer.bindPopup(feature.properties.nom);
+    pointToLayer: function (feature, latlng) {
+        return L.marker(latlng, {icon: myIcon2});
     }
+    
 });
 
 // Ajout de la couche GeoJSON pour Point_d'Eau
-var Point_Eau = L.geoJSON(pointdeau);
+
+var myIcon1 = L.icon({
+    iconUrl: "static/eau.png",
+    iconSize: [38, 95],
+});
+
+
+var Point_Eau = L.geoJSON(pointdeau, {
+    pointToLayer: function (feature, latlng) {
+        return L.marker(latlng, {icon: myIcon1});
+    }
+});
+
+
+
 
 // Ajout de la couche GeoJSON pour Incendie
 var Incendies = L.geoJSON(incendi);
+
+
 
 // Définition des fonctions de style et d'événements
 function getColor(c_name) {
@@ -82,6 +104,7 @@ var overlayMaps = {
     "Strates": strateEssence,
     "PosteVigi": PosteVigi,
     "Eclosion": Incendies
+    
 };
 var baseMaps = {
     "Osm": Osm,
@@ -127,8 +150,32 @@ function zoomToFeature(e) {
         document.getElementById('Tranché').textContent = response.data.trancherfeu;
         document.getElementById('essence').textContent = response.data.typeEssence;
 
+       
+
+
+// pour afficher l'image
+
+document.getElementById('canton').textContent = 'Photo de Canton ' + regionName;
+    const imagesDiv = document.getElementById('image');
+    imagesDiv.innerHTML = ''; // Clear previous images
+
+
+    response.data.images.forEach(function (imageUrl) {
+        if (imageUrl) {
+            const imgElement = document.createElement('img');
+            imgElement.src = imageUrl;
+            imgElement.alt = 'Image de la région';
+            imgElement.style.width = '390px'; 
+            imgElement.style.height = 'auto';
+            imagesDiv.appendChild(imgElement);
+        }
+    });
+///////////////////////////////////////////////////////////
+
+
     })
     .catch(function (error) {
         console.log(error);
     });
 }
+

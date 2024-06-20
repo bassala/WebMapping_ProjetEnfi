@@ -35,12 +35,15 @@ def get_data(request):
         trancherfeu = [region.trancherfeu for region in regions]
         typeEssence =[region.typeEssence for region in regions]
         superficie = [region.superf for region in regions]
-
+        images = [region.Image.url if region.Image else None for region in regions]
+        
         data = {'superficie': superficie,
                 'postvigi': postvigi,
                 'ptdeau': ptdeau,
                 'trancherfeu': trancherfeu,
-                'typeEssence':  typeEssence}
+                'typeEssence':  typeEssence,
+                'images': images,
+                }
 
 
         return JsonResponse(data)
