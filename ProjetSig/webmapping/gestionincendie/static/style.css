@@ -36,3 +36,36 @@
     display: inline-block;
 }
 
+#footer{
+    background-color: cornflowerblue;
+    height: 50px;
+   
+}
+
+
+table {
+    /* styles pour la table */
+    margin-top: 2px;
+    
+    border-collapse: collapse;
+    width: 100%;
+
+
+
+    
+}
+
+th, td {
+    /* styles pour les cellules de la table */
+    border: 2px solid black;
+    padding: 8px;
+    text-align: left;
+}
+
+#image{
+    position: relative;
+    width: 100%;
+    margin-top: 10px;
+    
+
+}

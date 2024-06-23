@@ -29,7 +29,7 @@ var strateEssence = L.geoJSON(jsonstrate);
 
 // Ajout de la couche GeoJSON pour posteVigi
 var myIcon2 = L.icon({
-    iconUrl: "static/tour.png",
+    iconUrl: "static/icones/tour.png",
     iconSize: [38, 95],
 });
 
@@ -43,7 +43,7 @@ var PosteVigi = L.geoJSON(postvigie, {
 // Ajout de la couche GeoJSON pour Point_d'Eau
 
 var myIcon1 = L.icon({
-    iconUrl: "static/eau.png",
+    iconUrl: "static/icones/eau.png",
     iconSize: [38, 95],
 });
 
@@ -58,7 +58,18 @@ var Point_Eau = L.geoJSON(pointdeau, {
 
 
 // Ajout de la couche GeoJSON pour Incendie
-var Incendies = L.geoJSON(incendi);
+
+var myIcon3 = L.icon({
+    iconUrl: "static/icones/feu.png",
+    iconSize: [38, 95],
+});
+
+var Incendies = L.geoJSON(incendi, {
+    pointToLayer: function (feature, latlng) {
+        return L.marker(latlng, {icon: myIcon3});
+    }
+    
+});
 
 
 
@@ -112,7 +123,11 @@ var baseMaps = {
 };
 var layerControl = L.control.layers(baseMaps, overlayMaps).addTo(map);
 
+L.Control.geocoder().addTo(map);
 
+
+
+s
 
 
 
