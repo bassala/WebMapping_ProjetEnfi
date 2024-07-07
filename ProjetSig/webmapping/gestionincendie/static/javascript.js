@@ -1,5 +1,5 @@
 // Initialisation de la carte
-var map = L.map('map').setView([34.0538, -6.3109], 10);
+var map = L.map('map', { editable: true }).setView([34.0538, -6.3109], 10);
 
 // Ajout des couches de tuiles
 var Osm = L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
@@ -193,4 +193,3 @@ document.getElementById('canton').textContent = 'Photo de Canton ' + regionName;
         console.log(error);
     });
 }
-
