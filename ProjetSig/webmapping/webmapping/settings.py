@@ -36,7 +36,7 @@ SECRET_KEY = 'django-insecure-r&0rotnwvx2mj#y9r*9k_!fk6%7b(qcqb($+nwl0_(4g*u-3aq
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['127.0.0.1','Bassala.pythonanywhere.com']
 
 
 # Application definition
@@ -147,7 +147,7 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 
 STATIC_URL = '/static/'
-STATIC_ROOT = BASE_DIR/'static'
+#STATIC_ROOT = BASE_DIR/'static'
 
-
+STATIC_ROOT = os.path.join(BASE_DIR, "static")
 
